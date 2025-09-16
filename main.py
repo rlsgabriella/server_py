@@ -44,8 +44,11 @@ async def classify_email(text: str = Form(...)):
     )
 
     try:
-        result = json.loads(response.text.strip())
-    except:
-        result = {"categoria": "Desconhecido", "resposta": response.text.strip()}
+
+        result = response.text.strip().replace('```json', '').replace('```', '').strip()
+        print(result)
+    except json.JSONDecodeError:
+    
+        print("Erro ao decodificar JSON")
 
     return {"email": text, "classificacao": result}
