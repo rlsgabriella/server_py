@@ -10,6 +10,8 @@ load_dotenv()  # carrega o .env
 API_KEY = os.getenv("GOOGLE_API_KEY")
 client = genai.Client(api_key=API_KEY)
 
+load_dotenv()
+openai = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 app = FastAPI()
 
 # Habilita CORS para testar localmente
