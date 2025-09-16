@@ -2,6 +2,7 @@ from fastapi import FastAPI, Form
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 import os
+import uvicorn
 from google import genai
 import json
 
@@ -15,7 +16,7 @@ app = FastAPI()
 # Habilita CORS para testar localmente
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # teste local
+    allow_origins=["https://front-server-py.vercel.app/"],  
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -52,3 +53,7 @@ async def classify_email(text: str = Form(...)):
         print("Erro ao decodificar JSON")
 
     return {"email": text, "classificacao": result}
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000)) 
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False)
