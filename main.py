@@ -10,8 +10,6 @@ load_dotenv()  # carrega o .env
 API_KEY = os.getenv("GOOGLE_API_KEY")
 client = genai.Client(api_key=API_KEY)
 
-load_dotenv()
-openai = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 app = FastAPI()
 
 # Habilita CORS para testar localmente
@@ -42,7 +40,7 @@ async def classify_email(text: str = Form(...)):
 
     response = client.models.generate_content(
         model="gemini-2.5-flash",
-        contents=prompt 
+        contents=prompt
     )
 
     try:
