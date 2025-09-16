@@ -16,7 +16,7 @@ app = FastAPI()
 # Habilita CORS para testar localmente
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://front-server-py.vercel.app/"],  
+    allow_origins=["*"],  
     allow_methods=["*"],
     allow_headers=["*"],
 )
