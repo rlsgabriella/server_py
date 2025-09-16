@@ -14,12 +14,7 @@ Uvicorn
 
 Google Generative AI
 
-dotenv
-
-.
-├── main.py          
-├── requirements.txt 
-└── .env             
+dotenv       
 
 🚀 Como rodar localmente
 
