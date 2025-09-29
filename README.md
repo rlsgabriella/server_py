@@ -20,7 +20,7 @@ dotenv
 
 1. Clone o repositório:
 
-- git clone https://github.com/seuusuario/server.py.git
+- git clone https://github.com/rlsgabriella/server.py.git
 
 - cd server.py
 
